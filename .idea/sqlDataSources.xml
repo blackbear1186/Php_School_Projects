@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="65c1b38e-3559-41db-9db7-b66ffcb29ad8" />
+          <option name="name" value="working-with-data" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/working-with-data.sql" />
+            </array>
+          </option>
+        </State>
+        <State>
+          <option name="id" value="0abff0a7-936f-45fd-9a70-a586705a44ee" />
+          <option name="name" value="movies" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/Movies.sql" />
+            </array>
+          </option>
+        </State>
+        <State>
+          <option name="id" value="8b55bb0a-1202-4f71-95ef-0dfa25878db9" />
+          <option name="name" value="real_estate" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/real_estate.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
