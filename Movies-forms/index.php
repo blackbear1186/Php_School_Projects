@@ -21,6 +21,10 @@ if($action === 'list-movies'){
   $pageTitle = 'List Movies';
   include 'view/movies_list.php';
 }
+else if($action === 'show-add-movie'){
+    $pageTitle = 'Add Movies';
+    include 'view/movie_add.php';
+}
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";
   $movies = getAllMovies();

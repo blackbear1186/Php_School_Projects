@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <label for="movie-rating">Rating</label>
-        <select class="custom-control" name="movie-rating" id="movie-rating">
+        <select class="custom-select" name="movie-rating" id="movie-rating">
             <option value="choose">Specify Rating</option>
             <option value="G" <?php if($movieRating === 'G') echo 'selected'; ?>>G</option>
             <option value="PG" <?php if($movieRating === 'PG') echo 'selected'; ?>>PG</option>
