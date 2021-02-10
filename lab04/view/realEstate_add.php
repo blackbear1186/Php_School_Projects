@@ -20,8 +20,60 @@
     </div>
     <div class="form-group">
         <label for="home-state">State</label>
-        <input type="text" name="home-state" id="home-state" class="form-control" placeholder="State"
-               value="<?php if (is_null($homeState)) echo $homeState;?>">
+        <select class="custom-select" name="home-state" id="home-state">
+            <option value="choose">Choose State</option>
+            <option value="AL"<?php if($homeState === 'AL') echo ' selected'; ?>>AL</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AR"<?php if($homeState === 'AR') echo ' selected'; ?>>AR</option>
+            <option value="CA"<?php if($homeState === 'CA') echo ' selected'; ?>>CA</option>
+            <option value="CO"<?php if($homeState === 'CO') echo ' selected'; ?>>CO</option>
+            <option value="CT"<?php if($homeState === 'CT') echo ' selected'; ?>>CT</option>
+            <option value="DE"<?php if($homeState === 'DE') echo ' selected'; ?>>DE</option>
+            <option value="DC"<?php if($homeState === 'DC') echo ' selected'; ?>>DC</option>
+            <option value="FL"<?php if($homeState === 'FL') echo ' selected'; ?>>FL</option>
+            <option value="GA"<?php if($homeState === 'GA') echo ' selected'; ?>>GA</option>
+            <option value="ID"<?php if($homeState === 'ID') echo ' selected'; ?>>ID</option>
+            <option value="IL"<?php if($homeState === 'IL') echo ' selected'; ?>>IL</option>
+            <option value="IN"<?php if($homeState === 'IN') echo ' selected'; ?>>IN</option>
+            <option value="IA"<?php if($homeState === 'IA') echo ' selected'; ?>>IA</option>
+            <option value="KS"<?php if($homeState === 'KS') echo ' selected'; ?>>KS</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+
+        </select>
     </div>
     <div class="form-group">
         <label for="zip-code">Zip Code</label>
@@ -31,7 +83,7 @@
     <div class="form-group">
         <label for="home-beds">Beds</label>
         <select class="custom-select" name="home-beds" id="home-beds">
-            <option value="choose-beds">Choose Beds</option>
+            <option value="choose">Choose Beds</option>
             <option value="1"<?php if($homeBeds === 1) echo ' selected';?>>1</option>
             <option value="2"<?php if($homeBeds === 2) echo ' selected';?>>2</option>
             <option value="3"<?php if($homeBeds === 3) echo ' selected';?>>3</option>
@@ -46,7 +98,7 @@
     <div class="form-group">
         <label for="home-baths">Baths</label>
         <select class="custom-select" name="home-baths" id="home-baths">
-            <option value="choose-baths">Choose Baths</option>
+            <option value="choose">Choose Baths</option>
             <option value="1"<?php if($homeBaths === 1) echo ' selected'; ?>>1</option>
             <option value="2"<?php if($homeBaths === 2) echo ' selected'; ?>>2</option>
             <option value="3"<?php if($homeBaths === 3) echo ' selected'; ?>>3</option>
@@ -69,7 +121,7 @@
                value="<?php if(is_null($lotSize)) echo $lotSize;?>">
     </div>
     <div class="form-group">
-        <label for="home-price">Lot Size</label>
+        <label for="home-price">Home Price</label>
         <input type="text" name="home-price" id="home-price" class="form-control" placeholder="Home Price"
                value="<?php if(is_null($homePrice)) echo $homePrice;?>">
     </div>

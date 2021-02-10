@@ -9,7 +9,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `real_estate` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(40) NOT NULL,
-  `Address` varchar(20) NOT NULL,
+  `Address` varchar(30) NOT NULL,
   `City` varchar(15) NOT NULL,
   `State` varchar(2) NOT NULL,
   `Zip` int(5) NOT NULL,

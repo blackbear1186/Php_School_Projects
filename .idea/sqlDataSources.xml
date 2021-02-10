@@ -22,11 +22,11 @@
           </option>
         </State>
         <State>
-          <option name="id" value="68fb0624-cb3e-4076-925e-38d875ad0b03" />
+          <option name="id" value="a201b478-ab22-4f4c-9a54-074be58f9394" />
           <option name="name" value="real_estate" />
           <option name="urls">
             <array>
-              <option value="file://$PROJECT_DIR$/real_estate.sql" />
+              <option value="file://$USER_HOME$/Downloads/real_estate.sql" />
             </array>
           </option>
         </State>
