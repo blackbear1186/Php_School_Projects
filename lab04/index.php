@@ -12,12 +12,16 @@ elseif(isset($_GET['action'])){
   $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 }
 else {
-  $action = 'list-houses';
+  $action = 'list-homes';
 }
-if($action === 'list-houses'){
+if($action === 'list-homes'){
   $realEstate = getAllRealEstate();
-  $pageTitle = 'List Houses';
+  $pageTitle = 'List Homes';
   include 'view/realEstate_list.php';
+
+} else if($action === 'show-add-home'){
+    $pageTitle = 'Add Home';
+    include 'view/realEstate_add.php';
 }
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";

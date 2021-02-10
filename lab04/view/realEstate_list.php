@@ -11,7 +11,7 @@
         <th scope="col">Zip</th>
         <th scope="col">Beds</th>
         <th scope="col">Baths</th>
-        <th scope="col">House Size</th>
+        <th scope="col">Home Size</th>
         <th scope="col">Lot Size</th>
         <th scope="col">Price</th>
         <th scope="col">Update</th>
@@ -20,32 +20,32 @@
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($realEstate as $house) : ?>
+    <?php foreach ($realEstate as $home) : ?>
     <tr>
-        <td><?php echo $house['Title']; ?></td>
-        <td><?php echo $house['Address']; ?></td>
-        <td><?php echo $house['City']; ?></td>
-        <td><?php echo $house['State']; ?></td>
-        <td><?php echo $house['Zip']; ?></td>
-        <td><?php echo $house['Beds']; ?></td>
-        <td><?php echo $house['Baths']; ?></td>
-        <td><?php echo $house['HouseSize']; ?></td>
-        <td><?php echo $house['LotSize']; ?></td>
-        <td><?php echo $house['Price']; ?></td>
+        <td><?php echo $home['Title']; ?></td>
+        <td><?php echo $home['Address']; ?></td>
+        <td><?php echo $home['City']; ?></td>
+        <td><?php echo $home['State']; ?></td>
+        <td><?php echo $home['Zip']; ?></td>
+        <td><?php echo $home['Beds']; ?></td>
+        <td><?php echo $home['Baths']; ?></td>
+        <td><?php echo $home['HouseSize']; ?></td>
+        <td><?php echo $home['LotSize']; ?></td>
+        <td><?php echo $home['Price']; ?></td>
         <td>
             <form action="." method="post">
-                <input type="hidden" name="action" value="update-house">
-                <input type="hidden" name="ID" value="<?php echo $house['ID']; ?>">
+                <input type="hidden" name="action" value="show-update-home">
+                <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
                 <input type="submit" class="btn btn-primary" value="Update" aria-label="Update
-                <?php echo $house['Title']; ?>">
+                <?php echo $home['Title']; ?>">
             </form>
         </td>
         <td>
             <form action="." method="post">
-                <input type="hidden" name="action" value="delete-house">
-                <input type="hidden" name="ID" value="<?php echo $house['ID']; ?>">
+                <input type="hidden" name="action" value="delete-home">
+                <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
                 <input type="submit" class="btn btn-primary" value="Delete" aria-label="Delete
-                <?php echo $house['Title']; ?>">
+                <?php echo $home['Title']; ?>">
             </form>
         </td>
     </tr>
@@ -53,4 +53,10 @@
   </tbody>
 
 </table>
+<div class="form-group text-center">
+    <form action="." method="post">
+        <input type="hidden" name="action" value="show-add-home">
+        <input type="submit" class="btn btn-primary" value="Add Home">
+    </form>
+</div>
 <?php include 'footer.php';

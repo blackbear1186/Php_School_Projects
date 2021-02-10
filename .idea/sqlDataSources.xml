@@ -21,6 +21,15 @@
             </array>
           </option>
         </State>
+        <State>
+          <option name="id" value="68fb0624-cb3e-4076-925e-38d875ad0b03" />
+          <option name="name" value="real_estate" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/real_estate.sql" />
+            </array>
+          </option>
+        </State>
       </list>
     </option>
   </component>
