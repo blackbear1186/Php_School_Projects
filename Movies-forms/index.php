@@ -71,6 +71,14 @@ else if($action === 'add-movie'){
         $pageTitle = 'List Movies';
         include 'view/movies_list.php';
     }
+} else if($action === 'delete-movie'){
+    $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
+    $movie = getMovieInfo($id);
+    $movieTitle = $movie['MovieTitle'];
+    deleteMovie($id, $movieTitle);
+    $movies = getAllMovies();
+    $pageTitle = 'List Movies';
+    include 'view/movies_list.php';
 }
 else if($action === 'clear-message'){
     header('Location:.');

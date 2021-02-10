@@ -84,3 +84,21 @@ function updateMovie($id, $movieTitle, $movieGenre, $releaseYear, $movieRating, 
         $successMessage = 'The movie <strong>' . $movieTitle . '</strong> was successfully updated.';
     }
 }
+function deleteMovie($id, $movieTitle){
+    global $db;
+    global $error, $successMessage;
+
+    $query = 'DELETE FROM Movies WHERE ID = :Movie_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue('Movie_id', $id, PDO::PARAM_INT);
+    $success = $statement->execute();
+    $statement->closeCursor();
+    if($statement->errorCode() !== 0 && $success === false){
+        $sqlError = $statement->errorInfo();
+        $error = 'DELETE error &rarr; The movie <strong>' . $movieTitle . '</strong> was not deleted because: ' . $sqlError[2];
+    }
+    else {
+        $successMessage = 'The movie <strong>' . $movieTitle . '</strong> was successfully deleted.';
+    }
+
+}
