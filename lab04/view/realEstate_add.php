@@ -32,46 +32,47 @@
             <option value="DC"<?php if($homeState === 'DC') echo ' selected'; ?>>DC</option>
             <option value="FL"<?php if($homeState === 'FL') echo ' selected'; ?>>FL</option>
             <option value="GA"<?php if($homeState === 'GA') echo ' selected'; ?>>GA</option>
+            <option value="HI"<?php if($homeState === 'HI') echo ' selected'; ?>>HI</option>
             <option value="ID"<?php if($homeState === 'ID') echo ' selected'; ?>>ID</option>
             <option value="IL"<?php if($homeState === 'IL') echo ' selected'; ?>>IL</option>
             <option value="IN"<?php if($homeState === 'IN') echo ' selected'; ?>>IN</option>
             <option value="IA"<?php if($homeState === 'IA') echo ' selected'; ?>>IA</option>
             <option value="KS"<?php if($homeState === 'KS') echo ' selected'; ?>>KS</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
-            <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
+            <option value="KY"<?php if($homeState === 'KY') echo ' selected'; ?>>KY</option>
+            <option value="LA"<?php if($homeState === 'LA') echo ' selected'; ?>>LA</option>
+            <option value="ME"<?php if($homeState === 'ME') echo ' selected'; ?>>ME</option>
+            <option value="MD"<?php if($homeState === 'MD') echo ' selected'; ?>>MD</option>
+            <option value="MA"<?php if($homeState === 'MA') echo ' selected'; ?>>MA</option>
+            <option value="MI"<?php if($homeState === 'MI') echo ' selected'; ?>>MI</option>
+            <option value="MN"<?php if($homeState === 'MA') echo ' selected'; ?>>MA</option>
+            <option value="MS"<?php if($homeState === 'MS') echo ' selected'; ?>>MS</option>
+            <option value="MO"<?php if($homeState === 'MO') echo ' selected'; ?>>MO</option>
+            <option value="MT"<?php if($homeState === 'MT') echo ' selected'; ?>>MT</option>
+            <option value="NE"<?php if($homeState === 'NE') echo ' selected'; ?>>AZ</option>
+            <option value="NV"<?php if($homeState === 'NV') echo ' selected'; ?>>NV</option>
+            <option value="NH"<?php if($homeState === 'NH') echo ' selected'; ?>>NH</option>
+            <option value="NJ"<?php if($homeState === 'NJ') echo ' selected'; ?>>NJ</option>
+            <option value="NM"<?php if($homeState === 'NM') echo ' selected'; ?>>NM</option>
+            <option value="NY"<?php if($homeState === 'NY') echo ' selected'; ?>>NY</option>
+            <option value="NM"<?php if($homeState === 'NM') echo ' selected'; ?>>NM</option>
+            <option value="NC"<?php if($homeState === 'NC') echo ' selected'; ?>>NC</option>
+            <option value="ND"<?php if($homeState === 'ND') echo ' selected'; ?>>ND</option>
+            <option value="OH"<?php if($homeState === 'OH') echo ' selected'; ?>>OH</option>
+            <option value="OK"<?php if($homeState === 'OK') echo ' selected'; ?>>OK</option>
+            <option value="OR"<?php if($homeState === 'OR') echo ' selected'; ?>>OR</option>
+            <option value="PA"<?php if($homeState === 'PA') echo ' selected'; ?>>PA</option>
+            <option value="RI"<?php if($homeState === 'RI') echo ' selected'; ?>>RI</option>
+            <option value="SC"<?php if($homeState === 'SC') echo ' selected'; ?>>SC</option>
+            <option value="SD"<?php if($homeState === 'SD') echo ' selected'; ?>>SD</option>
+            <option value="TN"<?php if($homeState === 'TN') echo ' selected'; ?>>TN</option>
+            <option value="TX"<?php if($homeState === 'TX') echo ' selected'; ?>>TX</option>
+            <option value="UT"<?php if($homeState === 'UT') echo ' selected'; ?>>UT</option>
+            <option value="VT"<?php if($homeState === 'VT') echo ' selected'; ?>>VT</option>
+            <option value="VA"<?php if($homeState === 'VA') echo ' selected'; ?>>VA</option>
+            <option value="WA"<?php if($homeState === 'WA') echo ' selected'; ?>>WA</option>
+            <option value="WV"<?php if($homeState === 'WV') echo ' selected'; ?>>WV</option>
+            <option value="WI"<?php if($homeState === 'WI') echo ' selected'; ?>>WI</option>
+            <option value="WY"<?php if($homeState === 'WY') echo ' selected'; ?>>WY</option>
 
         </select>
     </div>
