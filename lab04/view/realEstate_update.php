@@ -25,7 +25,6 @@
         <div class="form-group">
             <label for="home-state">State</label>
             <select class="custom-select" name="home-state" id="home-state">
-                <option value="choose">Choose State</option>
                 <option value="AL"<?php if($homeState === 'AL' || (!isset($homeState) && $home['State'] === 'AL')) echo ' selected'; ?>>AL</option>
                 <option value="AZ"<?php if($homeState === 'AZ' || (!isset($homeState) && $home['State'] === 'AZ')) echo ' selected'; ?>>AZ</option>
                 <option value="AR"<?php if($homeState === 'AR' || (!isset($homeState) && $home['State'] === 'AR')) echo ' selected'; ?>>AR</option>
@@ -88,30 +87,28 @@
         <div class="form-group">
             <label for="home-beds">Beds</label>
             <select class="custom-select" name="home-beds" id="home-beds">
-                <option value="choose">Choose Beds</option>
-                <option value="1"<?php if($homeBeds === 1 || (!isset($homeBeds) && $home['Beds'] === 1)) echo ' selected';?>>1</option>
-                <option value="2"<?php if($homeBeds === 2 || (!isset($homeBeds) && $home['Beds'] === 2)) echo ' selected';?>>2</option>
-                <option value="3"<?php if($homeBeds === 3 || (!isset($homeBeds) && $home['Beds'] === 3)) echo ' selected';?>>3</option>
-                <option value="4"<?php if($homeBeds === 4 || (!isset($homeBeds) && $home['Beds'] === 4)) echo ' selected';?>>4</option>
-                <option value="5"<?php if($homeBeds === 5 || (!isset($homeBeds) && $home['Beds'] === 5)) echo ' selected';?>>5</option>
-                <option value="6"<?php if($homeBeds === 6 || (!isset($homeBeds) && $home['Beds'] === 6)) echo ' selected';?>>6</option>
-                <option value="7"<?php if($homeBeds === 7 || (!isset($homeBeds) && $home['Beds'] === 7)) echo ' selected';?>>7</option>
-                <option value="8"<?php if($homeBeds === 8 || (!isset($homeBeds) && $home['Beds'] === 8)) echo ' selected';?>>8</option>
+                <option value="1"<?php if($homeBeds === '1' || (!isset($homeBeds) && $home['Beds'] === '1')) echo ' selected';?>>1</option>
+                <option value="2"<?php if($homeBeds === '2' || (!isset($homeBeds) && $home['Beds'] === '2')) echo ' selected';?>>2</option>
+                <option value="3"<?php if($homeBeds === '3' || (!isset($homeBeds) && $home['Beds'] === '3')) echo ' selected';?>>3</option>
+                <option value="4"<?php if($homeBeds === '4' || (!isset($homeBeds) && $home['Beds'] === '4')) echo ' selected';?>>4</option>
+                <option value="5"<?php if($homeBeds === '5' || (!isset($homeBeds) && $home['Beds'] === '5')) echo ' selected';?>>5</option>
+                <option value="6"<?php if($homeBeds === '6' || (!isset($homeBeds) && $home['Beds'] === '6')) echo ' selected';?>>6</option>
+                <option value="7"<?php if($homeBeds === '7' || (!isset($homeBeds) && $home['Beds'] === '7')) echo ' selected';?>>7</option>
+                <option value="8"<?php if($homeBeds === '8' || (!isset($homeBeds) && $home['Beds'] === '8')) echo ' selected';?>>8</option>
 
             </select>
         </div>
         <div class="form-group">
             <label for="home-baths">Baths</label>
             <select class="custom-select" name="home-baths" id="home-baths">
-                <option value="choose">Choose Baths</option>
-                <option value="1"<?php if($homeBaths === 1 || (!isset($homeBaths) && $home['Baths'] === 1)) echo ' selected'; ?>>1</option>
-                <option value="2"<?php if($homeBaths === 2 || (!isset($homeBaths) && $home['Baths'] === 2)) echo ' selected'; ?>>2</option>
-                <option value="3"<?php if($homeBaths === 3 || (!isset($homeBaths) && $home['Baths'] === 3)) echo ' selected'; ?>>3</option>
-                <option value="4"<?php if($homeBaths === 4 || (!isset($homeBaths) && $home['Baths'] === 4)) echo ' selected'; ?>>4</option>
-                <option value="5"<?php if($homeBaths === 5 || (!isset($homeBaths) && $home['Baths'] === 5)) echo ' selected'; ?>>5</option>
-                <option value="6"<?php if($homeBaths === 6 || (!isset($homeBaths) && $home['Baths'] === 6)) echo ' selected'; ?>>6</option>
-                <option value="7"<?php if($homeBaths === 7 || (!isset($homeBaths) && $home['Baths'] === 7)) echo ' selected'; ?>>7</option>
-                <option value="8"<?php if($homeBaths === 8 || (!isset($homeBaths) && $home['Baths'] === 8)) echo ' selected'; ?>>8</option>
+                <option value="1"<?php if($homeBaths === '1' || (!isset($homeBaths) && $home['Baths'] === '1')) echo ' selected'; ?>>1</option>
+                <option value="2"<?php if($homeBaths === '2' || (!isset($homeBaths) && $home['Baths'] === '2')) echo ' selected'; ?>>2</option>
+                <option value="3"<?php if($homeBaths === '3' || (!isset($homeBaths) && $home['Baths'] === '3')) echo ' selected'; ?>>3</option>
+                <option value="4"<?php if($homeBaths === '4' || (!isset($homeBaths) && $home['Baths'] === '4')) echo ' selected'; ?>>4</option>
+                <option value="5"<?php if($homeBaths === '5' || (!isset($homeBaths) && $home['Baths'] === '5')) echo ' selected'; ?>>5</option>
+                <option value="6"<?php if($homeBaths === '6' || (!isset($homeBaths) && $home['Baths'] === '6')) echo ' selected'; ?>>6</option>
+                <option value="7"<?php if($homeBaths === '7' || (!isset($homeBaths) && $home['Baths'] === '7')) echo ' selected'; ?>>7</option>
+                <option value="8"<?php if($homeBaths === '8' || (!isset($homeBaths) && $home['Baths'] === '8')) echo ' selected'; ?>>8</option>
 
             </select>
         </div>
@@ -133,8 +130,8 @@
         <div class="form-group text-center">
             <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
             <input type="hidden" name="action" value="update-home">
-            <input type="submit" class="btn btn-primary" value="Update Home">
-            <a href="." class="btn btn-primary">Cancel</a>
+            <input type="submit" class="btn btn-secondary" value="Update Home">
+            <a href="." class="btn btn-secondary">Cancel</a>
         </div>
     </form>
 <?php include 'footer.php';

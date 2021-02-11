@@ -72,7 +72,7 @@ if($action === 'list-homes'){
         include 'view/realEstate_update.php';
 
     } else {
-        updateHome()($id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
+        updateHome($id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
         $realEstate = getAllRealEstate();
         $pageTitle = 'List Homes';
         include 'view/realEstate_list.php';
@@ -90,6 +90,8 @@ if($action === 'list-homes'){
     $realEstate = getAllRealEstate();
     $pageTitle = 'List Homes';
     include 'view/realEstate_list.php';
+} else if($action === 'clear-message'){
+    header('Location: .');
 }
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";

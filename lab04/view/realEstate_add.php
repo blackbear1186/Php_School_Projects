@@ -85,14 +85,14 @@
         <label for="home-beds">Beds</label>
         <select class="custom-select" name="home-beds" id="home-beds">
             <option value="choose">Choose Beds</option>
-            <option value="1"<?php if($homeBeds === 1) echo ' selected';?>>1</option>
-            <option value="2"<?php if($homeBeds === 2) echo ' selected';?>>2</option>
-            <option value="3"<?php if($homeBeds === 3) echo ' selected';?>>3</option>
-            <option value="4"<?php if($homeBeds === 4) echo ' selected';?>>4</option>
-            <option value="5"<?php if($homeBeds === 5) echo ' selected';?>>5</option>
-            <option value="6"<?php if($homeBeds === 6) echo ' selected';?>>6</option>
-            <option value="7"<?php if($homeBeds === 7) echo ' selected';?>>7</option>
-            <option value="8"<?php if($homeBeds === 8) echo ' selected';?>>8</option>
+            <option value="1"<?php if($homeBeds === '1') echo ' selected';?>>1</option>
+            <option value="2"<?php if($homeBeds === '2') echo ' selected';?>>2</option>
+            <option value="3"<?php if($homeBeds === '3') echo ' selected';?>>3</option>
+            <option value="4"<?php if($homeBeds === '4') echo ' selected';?>>4</option>
+            <option value="5"<?php if($homeBeds === '5') echo ' selected';?>>5</option>
+            <option value="6"<?php if($homeBeds === '6') echo ' selected';?>>6</option>
+            <option value="7"<?php if($homeBeds === '7') echo ' selected';?>>7</option>
+            <option value="8"<?php if($homeBeds === '8') echo ' selected';?>>8</option>
 
         </select>
     </div>
@@ -100,14 +100,14 @@
         <label for="home-baths">Baths</label>
         <select class="custom-select" name="home-baths" id="home-baths">
             <option value="choose">Choose Baths</option>
-            <option value="1"<?php if($homeBaths === 1) echo ' selected'; ?>>1</option>
-            <option value="2"<?php if($homeBaths === 2) echo ' selected'; ?>>2</option>
-            <option value="3"<?php if($homeBaths === 3) echo ' selected'; ?>>3</option>
-            <option value="4"<?php if($homeBaths === 4) echo ' selected'; ?>>4</option>
-            <option value="5"<?php if($homeBaths === 5) echo ' selected'; ?>>5</option>
-            <option value="6"<?php if($homeBaths === 6) echo ' selected'; ?>>6</option>
-            <option value="7"<?php if($homeBaths === 7) echo ' selected'; ?>>7</option>
-            <option value="8"<?php if($homeBaths === 8) echo ' selected'; ?>>8</option>
+            <option value="1"<?php if($homeBaths === '1') echo ' selected'; ?>>1</option>
+            <option value="2"<?php if($homeBaths === '2') echo ' selected'; ?>>2</option>
+            <option value="3"<?php if($homeBaths === '3') echo ' selected'; ?>>3</option>
+            <option value="4"<?php if($homeBaths === '4') echo ' selected'; ?>>4</option>
+            <option value="5"<?php if($homeBaths === '5') echo ' selected'; ?>>5</option>
+            <option value="6"<?php if($homeBaths === '6') echo ' selected'; ?>>6</option>
+            <option value="7"<?php if($homeBaths === '7') echo ' selected'; ?>>7</option>
+            <option value="8"<?php if($homeBaths === '8') echo ' selected'; ?>>8</option>
 
         </select>
     </div>
@@ -129,7 +129,7 @@
     <div class="form-group text-center">
         <input type="hidden" name="action" value="add-home">
         <input type="submit" class="btn btn-secondary" value="Add Home">
-        <a href="." class="btn btn-primary">Cancel</a>
+        <a href="." class="btn btn-secondary">Cancel</a>
     </div>
 </form>
 <?php include 'footer.php';

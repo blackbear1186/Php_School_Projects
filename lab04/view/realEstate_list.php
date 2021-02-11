@@ -53,10 +53,14 @@
   </tbody>
 
 </table>
-<div class="form-group text-center">
-    <form action="." method="post">
-        <input type="hidden" name="action" value="show-add-home">
-        <input type="submit" class="btn btn-secondary" value="Add Home">
-    </form>
-</div>
+    <div class="form-group text-center">
+        <form action="." method="post" class="btn-group">
+            <input type="hidden" name="action" value="show-add-home">
+            <input type="submit" class="btn btn-secondary" value="Add Home">
+        </form>
+        <form action="." method="post" class="btn-group">
+            <input type="hidden" name="action" value="clear-message">
+            <input type="submit" class="btn btn-secondary" value="Clear Message">
+        </form>
+    </div>
 <?php include 'footer.php';
