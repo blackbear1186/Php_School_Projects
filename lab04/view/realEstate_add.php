@@ -128,7 +128,7 @@
     </div>
     <div class="form-group text-center">
         <input type="hidden" name="action" value="add-home">
-        <input type="submit" class="btn btn-primary" value="Add Home">
+        <input type="submit" class="btn btn-secondary" value="Add Home">
         <a href="." class="btn btn-primary">Cancel</a>
     </div>
 </form>

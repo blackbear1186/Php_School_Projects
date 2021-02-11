@@ -72,11 +72,24 @@ if($action === 'list-homes'){
         include 'view/realEstate_update.php';
 
     } else {
-        addHome($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
+        updateHome()($id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
         $realEstate = getAllRealEstate();
         $pageTitle = 'List Homes';
         include 'view/realEstate_list.php';
     }
+} else if($action === 'show-delete-home'){
+    $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
+    $home = getHomeInfo($id);
+    $pageTitle = 'Delete Home';
+    include 'view/realEstate_delete.php';
+
+} else if ($action === 'delete-home'){
+    $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
+    $homeTitle = $home['Title'];
+    deleteHome($id, $homeTitle);
+    $realEstate = getAllRealEstate();
+    $pageTitle = 'List Homes';
+    include 'view/realEstate_list.php';
 }
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";

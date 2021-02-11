@@ -55,7 +55,7 @@ function getHomeInfo($id){
     }
     return $home;
 }
-function updateHome($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice){
+function updateHome($id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice){
     global $db;
     global $error, $successMessage;
     $query = 'UPDATE real_estate 
@@ -90,5 +90,21 @@ function updateHome($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $
         $error = 'Update error &rarr; The home <strong>' . $homeTitle . '</strong> was not updated because: ' . $sqlError[2];
     } else {
         $successMessage = 'The home <strong> ' . $homeTitle . '</strong> was successfully updated.';
+    }
+}
+function deleteHome($id, $homeTitle){
+    global $db;
+    global $error, $successMessage;
+
+    $query = 'DELETE FROM real_estate WHERE ID = :Home_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue('Home_id', $id, PDO::PARAM_INT);
+    $success = $statement->execute();
+    $statement->closeCursor();
+    if($statement->errorCode() !== 0 && $success === false){
+        $sqlError = $statement->errorInfo();
+        $error = 'DELETE error &rarr; The home <strong>' . $homeTitle . '</strong> was not deleted because: ' . $sqlError[2];
+    } else {
+        $successMessage = 'The home <strong> ' . $homeTitle . '</strong> was successfully deleted.';
     }
 }

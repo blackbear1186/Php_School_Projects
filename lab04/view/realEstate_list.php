@@ -36,15 +36,15 @@
             <form action="." method="post">
                 <input type="hidden" name="action" value="show-update-home">
                 <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
-                <input type="submit" class="btn btn-primary" value="Update" aria-label="Update
+                <input type="submit" class="btn btn-secondary" value="Update" aria-label="Update
                 <?php echo $home['Title']; ?>">
             </form>
         </td>
         <td>
             <form action="." method="post">
-                <input type="hidden" name="action" value="delete-home">
+                <input type="hidden" name="action" value="show-delete-home">
                 <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
-                <input type="submit" class="btn btn-primary" value="Delete" aria-label="Delete
+                <input type="submit" class="btn btn-secondary" value="Delete" aria-label="Delete
                 <?php echo $home['Title']; ?>">
             </form>
         </td>
@@ -56,7 +56,7 @@
 <div class="form-group text-center">
     <form action="." method="post">
         <input type="hidden" name="action" value="show-add-home">
-        <input type="submit" class="btn btn-primary" value="Add Home">
+        <input type="submit" class="btn btn-secondary" value="Add Home">
     </form>
 </div>
 <?php include 'footer.php';
