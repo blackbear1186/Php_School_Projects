@@ -40,3 +40,18 @@ function addHome($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $hom
         $successMessage = 'The home <strong> ' . $homeTitle . '</strong> was successfully added.';
     }
 }
+function getHomeInfo($id){
+    global $db;
+    global $error;
+    $query = 'SELECT * FROM real_estate WHERE ID = :Home_ID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':Home_id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $home = $statement->fetch();
+    $statement->closeCursor();
+    if($statement->errorCode() !== 0 && empty($home)){
+        $sqlError = $statement->errorInfo();
+        $error = 'SELECT error &rarr; The home with ID <strong>' . $id . '</strong> was not retrieved because: ' . $sqlError[2];
+    }
+    return $home;
+}
