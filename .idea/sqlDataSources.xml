@@ -30,6 +30,24 @@
             </array>
           </option>
         </State>
+        <State>
+          <option name="id" value="8464f0dd-951e-4fa9-bfca-07bbfbeb87a1" />
+          <option name="name" value="strings-example" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/strings-example.sql" />
+            </array>
+          </option>
+        </State>
+        <State>
+          <option name="id" value="8330f531-3510-4e14-b785-f2e182af43a4" />
+          <option name="name" value="employees" />
+          <option name="urls">
+            <array>
+              <option value="file://$USER_HOME$/Desktop/Desk/Web_Programming_375/employees.sql" />
+            </array>
+          </option>
+        </State>
       </list>
     </option>
   </component>
