@@ -1,3 +1,4 @@
+<?php include 'functions.php';?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -53,13 +54,13 @@
                     echo "<ul>\n";
                     // for loop to print array elements and add each score to the total
                     for($i = 0; $i <= $gamesArrayElements; $i++){
-                        echo "<li>$bowlingScores[$i]</li>\n";
+                        echo "<li>$bowlingScores[$i] - " . getBowlingRank($bowlingScores[$i]) . "</li>\n";
                         $total += $bowlingScores[$i];
                     }
                     echo "</ul>\n";
                     $average = $total / $numberOfGames;
                     echo "<h2>Average Score:</h2>";
-                    echo "<p>" . number_format($average, 1) . "</p>\n";
+                    echo "<p>" . number_format($average, 1) . " - " . getBowlingRank($average) . "</p>\n";
 
                 } else {
                     if(count($bowlingScores) > 0){
