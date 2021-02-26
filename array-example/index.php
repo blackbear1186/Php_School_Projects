@@ -5,7 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Array Example</title>
         <link rel="stylesheet" href="bootstrap.min.css">
-
+        <script>
+            window.onload = () => {
+                document.getElementById('game1').focus();
+                document.getElementById('game1').select();
+            }
+        </script>
+        <style>
+            input[type="text"] {width: 4em !important; text-align: right; margin-right: .5em;}
+            ul {list-style-type: none; padding-left: 0}
+        </style>
     </head>
     <body>
         <div class="container">
@@ -37,7 +46,29 @@
                         <a href="." class="btn btn-secondary">Clear</a>
                     </div>
                 </form>
+                <?php
+                if(count($bowlingScores) === $numberOfGames){
+                    $total = 0;
+                    echo "<h2>Score:</h2>";
+                    echo "<ul>\n";
+                    // for loop to print array elements and add each score to the total
+                    for($i = 0; $i <= $gamesArrayElements; $i++){
+                        echo "<li>$bowlingScores[$i]</li>\n";
+                        $total += $bowlingScores[$i];
+                    }
+                    echo "</ul>\n";
+                    $average = $total / $numberOfGames;
+                    echo "<h2>Average Score:</h2>";
+                    echo "<p>" . number_format($average, 1) . "</p>\n";
 
+                } else {
+                    if(count($bowlingScores) > 0){
+                        echo "<h2 class='text-danger'>Please enter scores in each textbox.</h2>\n";
+                    }
+                }
+
+                ?>
+            </div>
         </div>
     </body>
 </html>
