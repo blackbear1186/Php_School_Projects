@@ -22,7 +22,7 @@ try {
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Johnson - Lab 5</title>
         <link rel="stylesheet" href="bootstrap.min.css">
     </head>
