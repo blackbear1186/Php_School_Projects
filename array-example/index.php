@@ -64,6 +64,7 @@
 
                 } else {
                     if(count($bowlingScores) > 0){
+
                         echo "<h2 class='text-danger'>Please enter scores in each textbox.</h2>\n";
                     }
                 }
