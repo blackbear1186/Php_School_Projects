@@ -32,14 +32,14 @@
                     // create assignment grade array
                     $assignmentGrade = array();
                     // set the number assignment grades to be entered
-                    $numberOfAssignments = 4;
+                    $numberOfAssignments = 3;
                     // declare a variable to used for array elements - subtract 1 since array elements start at 0
                     $assignmentArrayElements = $numberOfAssignments - 1;
                     for($i = 0; $i <= $assignmentArrayElements; $i++){
                         $assignmentNumber = $i + 1;
                         // Load values from the post to the array
                         if(strlen($_POST['assignment' . $assignmentNumber]) > 0){
-                            $assignmentGrade[$i] = filter_input(INPUT_POST, 'assignment' . $assignmentNumber, FILTER_SANITIZE_NUMBER_INT);
+                            $assignmentGrade[$i] = filter_input(INPUT_POST, 'assignment' . $assignmentNumber, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                         }
 
                         echo "<div class='form-group form-inline justify-content-center'>\n";
@@ -64,7 +64,7 @@
                         echo "<ul>\n";
                         // iterate through number of assignments entered and print the percentage and letter grades
                         for($i = 0; $i < $numberOfAssignments; $i++){
-                            echo "<li>$assignmentGrade[$i]% - " . getAssignmentGrade($assignmentGrade[$i]) . "</li>\n";
+                            echo "<li>" . number_format($assignmentGrade[$i], 2) . "% - " . getAssignmentGrade($assignmentGrade[$i]) . "</li>\n";
                             $total += $assignmentGrade[$i];
                         }
                         echo "<h2>Dropped Assignment Grade:</h2>";
@@ -74,14 +74,14 @@
 
                         // get the average grade for all assignments
                         $average = $total / $numberOfAssignments;
-                        echo "<h1>Average of 8 Highest Assignment Grades:</h1>";
-                        echo "<li>$average% - " . getAssignmentGrade($average) . "</li>\n";
+                        echo "<h2>Average of 8 Highest Assignment Grades:</h2>";
+                        echo "<li>" . number_format($average, 2) . "% - " . getAssignmentGrade($average) . "</li>\n";
 
                         echo "</ul>\n";
 
                     }
                     else {
-                        if(count($assignmentGrade) > 0){
+                        if(count($assignmentGrade) > 0 && !isset($assignmentGrade)){
                             echo "<h2 class='text-danger'>Please enter grades in each textbox</h2>";
 
                         }
