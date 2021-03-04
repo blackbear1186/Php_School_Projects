@@ -45,7 +45,7 @@
                         echo "<div class='form-group form-inline justify-content-center'>\n";
                         echo "<label for='assignment$assignmentNumber'>Assignment $assignmentNumber:</label>\n";
                         echo "<input type='text' class='form-control' name='assignment$assignmentNumber' id='assignment$assignmentNumber' 
-                                value=' $assignmentGrade[$i]'>%\n";
+                                value='$assignmentGrade[$i]'>%\n";
                         echo "</div>\n";
                     }
                     ?>
@@ -55,6 +55,7 @@
                     </div>
                 </form>
                 <?php
+
                     if(count($assignmentGrade) === $numberOfAssignments){
                         $total = 0;
                         // sort and reverse the $assignmentGrade array
@@ -79,9 +80,8 @@
 
                         echo "</ul>\n";
 
-                    }
-                    else {
-                        if(count($assignmentGrade) > 0 && !isset($assignmentGrade)){
+                    } else {
+                        if(count($assignmentGrade) > 0){
                             echo "<h2 class='text-danger'>Please enter grades in each textbox</h2>";
 
                         }
