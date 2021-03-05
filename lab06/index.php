@@ -20,6 +20,7 @@
             }
             ul {
                 list-style-type: none;
+                padding-left: 0;
             }
         </style>
     </head>
@@ -58,23 +59,26 @@
 
                     if(count($assignmentGrade) === $numberOfAssignments){
                         $total = 0;
-                        // sort and reverse the $assignmentGrade array
+                        // sort the $assignmentGrade array in descending order
                         rsort($assignmentGrade);
 
                         echo "<h2>Grade Assignments:</h2>";
                         echo "<ul>\n";
                         // iterate through number of assignments entered and print the percentage and letter grades
                         for($i = 0; $i < $numberOfAssignments; $i++){
-                            echo "<li>" . number_format($assignmentGrade[$i], 2) . "% - " . getAssignmentGrade($assignmentGrade[$i]) . "</li>\n";
-                            $total += $assignmentGrade[$i];
+                            echo "<li>$assignmentGrade[$i]% - " . getAssignmentGrade($assignmentGrade[$i]) . "</li>\n";
                         }
                         echo "<h2>Dropped Assignment Grade:</h2>";
                         // move the cursor to the end of the array and assign the value to a variable
                         $lowestAssignmentGrade = end($assignmentGrade);
                         echo "<li>$lowestAssignmentGrade% - " . getAssignmentGrade($lowestAssignmentGrade) . "</li>\n";
-
+                        for($i = 0; $i < $numberOfAssignments - 1; $i++ ){
+                            $total += $assignmentGrade[$i];
+                        }
+                        $num = $numberOfAssignments - 1;
                         // get the average grade for all assignments
-                        $average = $total / $numberOfAssignments;
+                        $average = $total / $num;
+                        echo "<p>$total</p>";
                         echo "<h2>Average of 8 Highest Assignment Grades:</h2>";
                         echo "<li>" . number_format($average, 2) . "% - " . getAssignmentGrade($average) . "</li>\n";
 
