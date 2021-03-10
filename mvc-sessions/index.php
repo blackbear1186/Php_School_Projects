@@ -55,7 +55,7 @@ else if($action === 'add-movie'){
         addMovie($movieTitle, $movieGenre, $releaseYear, $movieRating, $imdbScore);
         $movies = getAllMovies();
         $pageTitle = 'List Movies';
-        header('location: .');
+        header('Location: .');
     }
 } else if($action === 'show-update-movie'){
     $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
@@ -82,7 +82,7 @@ else if($action === 'add-movie'){
         updateMovie($id, $movieTitle, $movieGenre, $releaseYear, $movieRating, $imdbScore);
         $movies = getAllMovies();
         $pageTitle = 'List Movies';
-        header('location: .');
+        header('Location:.');
     }
 } else if($action === 'delete-movie'){
     $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
@@ -91,9 +91,29 @@ else if($action === 'add-movie'){
     deleteMovie($id, $movieTitle);
     $movies = getAllMovies();
     $pageTitle = 'List Movies';
-    header('location: .');
+    header('Location:.');
 }
 else if($action === 'clear-message'){
+    header('Location:.');
+} else if($action === 'empty-log') {
+    unset($_SESSION['log']);
+    header('Location:.');
+} else if($action === 'end-session') {
+    // clear session data from memory
+    $_SESSION = array();
+
+    // clean up session ID
+    session_destroy();
+
+    // delete the cookie from the session
+    $name = session_name();
+    $expire = strtotime('-1 year');
+    $params = session_get_cookie_params();
+    $path = $params['path'];
+    $domain = $params['domain'];
+    $secure = $params['secure'];
+    $httponly = $params['httponly'];
+    setcookie($name, '', $expire, $path, $domain, $secure, $httponly);
     header('Location:.');
 }
 else {
@@ -101,5 +121,5 @@ else {
   logErrorMessage($error);
   $movies = getAllMovies();
   $pageTitle = 'Code Error';
-  header('location: .');
+  header('location:.');
 }
