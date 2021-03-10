@@ -33,7 +33,7 @@
                     // create assignment grade array
                     $assignmentGrade = array();
                     // set the number assignment grades to be entered
-                    $numberOfAssignments = 3;
+                    $numberOfAssignments = 9;
                     // declare a variable to used for array elements - subtract 1 since array elements start at 0
                     $assignmentArrayElements = $numberOfAssignments - 1;
                     for($i = 0; $i <= $assignmentArrayElements; $i++){
@@ -78,7 +78,6 @@
                         $num = $numberOfAssignments - 1;
                         // get the average grade for all assignments
                         $average = $total / $num;
-                        echo "<p>$total</p>";
                         echo "<h2>Average of 8 Highest Assignment Grades:</h2>";
                         echo "<li>" . number_format($average, 2) . "% - " . getAssignmentGrade($average) . "</li>\n";
 
