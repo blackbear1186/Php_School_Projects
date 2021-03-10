@@ -11,6 +11,7 @@ function getAllMovies(){
   if($statement->errorCode() !== 0 && empty($movies)){
     $sqlError = $statement->errorInfo();
     $error = 'SELECT error &rarr; The movies were not retrieved because: ' . $sqlError[2];
+    logErrorMessage($error);
   }
   return $movies;
 }
@@ -36,9 +37,12 @@ function addMovie($movieTitle, $movieGenre, $releaseYear, $movieRating, $imdbSco
     if($statement->errorCode() !== 0 && $success === false){
         $sqlError = $statement->errorInfo();
         $error = 'INSERT error &rarr; The movie <strong>' . $movieTitle . '</strong> was not add because: ' . $sqlError[2];
+        logErrorMessage($error);
+
     }
     else {
         $successMessage = 'The movie <strong>' . $movieTitle . '</strong> was successfully added to the database.';
+        logSuccessMessage($successMessage);
     }
 }
 function getMovieInfo($id){
@@ -53,6 +57,8 @@ function getMovieInfo($id){
     if($statement->errorCode() !== 0 && empty($movie)){
         $sqlError = $statement->errorInfo();
         $error = 'SELECT error &rarr; The movie with the ID <strong>' . $id . '</strong> was not retrieved because: ' . $sqlError[2];
+        logErrorMessage($error);
+
     }
     return $movie;
 }
@@ -79,9 +85,12 @@ function updateMovie($id, $movieTitle, $movieGenre, $releaseYear, $movieRating, 
     if($statement->errorCode() !== 0 && $success === false){
         $sqlError = $statement->errorInfo();
         $error = 'Update error &rarr; The movie <strong>' . $movieTitle . '</strong> was not updated because: ' . $sqlError[2];
+        logErrorMessage($error);
+
     }
     else {
         $successMessage = 'The movie <strong>' . $movieTitle . '</strong> was successfully updated.';
+        logSuccessMessage($successMessage);
     }
 }
 function deleteMovie($id, $movieTitle){
@@ -96,9 +105,12 @@ function deleteMovie($id, $movieTitle){
     if($statement->errorCode() !== 0 && $success === false){
         $sqlError = $statement->errorInfo();
         $error = 'DELETE error &rarr; The movie <strong>' . $movieTitle . '</strong> was not deleted because: ' . $sqlError[2];
+        logErrorMessage($error);
+
     }
     else {
         $successMessage = 'The movie <strong>' . $movieTitle . '</strong> was successfully deleted.';
+        logSuccessMessage($successMessage);
     }
 
 }

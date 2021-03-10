@@ -55,7 +55,7 @@ else if($action === 'add-movie'){
         addMovie($movieTitle, $movieGenre, $releaseYear, $movieRating, $imdbScore);
         $movies = getAllMovies();
         $pageTitle = 'List Movies';
-        include 'view/movies_list.php';
+        header('location: .');
     }
 } else if($action === 'show-update-movie'){
     $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
@@ -82,7 +82,7 @@ else if($action === 'add-movie'){
         updateMovie($id, $movieTitle, $movieGenre, $releaseYear, $movieRating, $imdbScore);
         $movies = getAllMovies();
         $pageTitle = 'List Movies';
-        include 'view/movies_list.php';
+        header('location: .');
     }
 } else if($action === 'delete-movie'){
     $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
@@ -91,7 +91,7 @@ else if($action === 'add-movie'){
     deleteMovie($id, $movieTitle);
     $movies = getAllMovies();
     $pageTitle = 'List Movies';
-    include 'view/movies_list.php';
+    header('location: .');
 }
 else if($action === 'clear-message'){
     header('Location:.');
@@ -101,5 +101,5 @@ else {
   logErrorMessage($error);
   $movies = getAllMovies();
   $pageTitle = 'Code Error';
-  include 'view/movies_list.php';
+  header('location: .');
 }
