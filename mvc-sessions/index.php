@@ -1,6 +1,17 @@
 <?php
 require 'model/database.php';
 require 'model/movies_db.php';
+require 'utility/functions.php';
+
+$lifetime = 60 * 60 * 24 * 14;
+// 1. start session with a lifetime of 2 weeks
+session_set_cookie_params($lifetime, '/');
+session_start();
+
+// 2. create session log array if one does not exist
+if(empty($_SESSION['log'])){
+    $_SESSION['log'] = array();
+}
 
 if(!empty($_POST)){
   $_POST = array_map('trim', $_POST);
@@ -36,6 +47,7 @@ else if($action === 'add-movie'){
     // if any of the input values are empty display error message
     if(!strlen($movieTitle) || !strlen($movieGenre) || !strlen($releaseYear) || $movieRating === 'choose' || !strlen($imdbScore)){
         $error = 'All fields in the Add form must contain data. Please ensure all form elements contain appropriate values.';
+        logErrorMessage($error);
         $pageTitle = 'Add Movie';
         include 'view/movie_add.php';
     }
@@ -62,6 +74,7 @@ else if($action === 'add-movie'){
     // if any of the input values are empty display error message
     if(!strlen($movieTitle) || !strlen($movieGenre) || !strlen($releaseYear) || !strlen($imdbScore)){
         $error = 'All fields in the Update form must contain data. Please ensure all form elements contain appropriate values.';
+        logErrorMessage($error);
         $movie = getMovieInfo($id);
         $pageTitle = 'Update Movie';
         include 'view/movie_update.php';
@@ -85,6 +98,7 @@ else if($action === 'clear-message'){
 }
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";
+  logErrorMessage($error);
   $movies = getAllMovies();
   $pageTitle = 'Code Error';
   include 'view/movies_list.php';
