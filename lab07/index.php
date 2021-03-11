@@ -1,6 +1,16 @@
 <?php
 require 'model/database.php';
 require 'model/realEstate_db.php';
+require 'utility/functions.php';
+
+$lifetime = 60 * 60 * 24 * 14;
+
+session_set_cookie_params($lifetime, '/');
+session_start();
+
+if(empty($_SESSION['log'])){
+    $_SESSION['log'] = array();
+}
 
 if(!empty($_POST)){
   $_POST = array_map('trim', $_POST);
@@ -37,13 +47,14 @@ if($action === 'list-homes'){
     if(!strlen($homeTitle) || !strlen($homeAddress) || !strlen($homeCity) || $homeState === 'choose' || !strlen($zipCode) || $homeBeds === 'choose' || $homeBaths === 'choose' ||
     !strlen($homeSize) || !strlen($lotSize) || !strlen($homePrice)){
         $error = 'All fields in the Add form must contain data. Please ensure all form elements contain appropriate values.';
+        logErrorMessage($error);
         $pageTitle = 'Add Home';
         include 'view/realEstate_add.php';
     } else {
         addHome($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
         $realEstate = getAllRealEstate();
         $pageTitle = 'List Homes';
-        include 'view/realEstate_list.php';
+        header('Location: .');
     }
 
 } else if($action === 'show-update-home'){
@@ -66,7 +77,8 @@ if($action === 'list-homes'){
     $homePrice = filter_input(INPUT_POST, 'home-price', FILTER_SANITIZE_NUMBER_INT);
 
     if(!strlen($homeTitle) || !strlen($homeAddress) || !strlen($homeCity) || !strlen($zipCode) || !strlen($homeSize) || !strlen($lotSize) || !strlen($homePrice)){
-        $error = 'All fields in the Add form must contain data. Please ensure all form elements contain appropriate values.';
+        $error = 'All fields in the Update form must contain data. Please ensure all form elements contain appropriate values.';
+        logErrorMessage($error);
         $home = getHomeInfo($id);
         $pageTitle = 'Update Home';
         include 'view/realEstate_update.php';
@@ -75,7 +87,7 @@ if($action === 'list-homes'){
         updateHome($id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
         $realEstate = getAllRealEstate();
         $pageTitle = 'List Homes';
-        include 'view/realEstate_list.php';
+        header('Location: .');
     }
 } else if($action === 'show-delete-home'){
     $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
@@ -89,15 +101,17 @@ if($action === 'list-homes'){
     deleteHome($id, $homeTitle);
     $realEstate = getAllRealEstate();
     $pageTitle = 'List Homes';
-    include 'view/realEstate_list.php';
+    header('Location: .');
+
 } else if($action === 'clear-message'){
     header('Location: .');
 }
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";
+  logErrorMessage($error);
   $realEstate = getAllRealEstate();
   $pageTitle = 'Code Error';
-  include 'view/realEstate_list.php';
+  header('Location: .');
 }
 
 
