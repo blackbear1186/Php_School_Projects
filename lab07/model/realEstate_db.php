@@ -36,8 +36,10 @@ function addHome($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $hom
     if($statement->errorCode() !== 0 && $success === false){
         $sqlError = $statement->errorInfo();
         $error = 'INSERT error &rarr; The home <strong>' . $homeTitle . '</strong> was not added because: ' . $sqlError[2];
+        logErrorMessage($error);
     } else {
         $successMessage = 'The home <strong> ' . $homeTitle . '</strong> was successfully added.';
+        logSuccessMessage($successMessage);
     }
 }
 function getHomeInfo($id){
@@ -52,6 +54,7 @@ function getHomeInfo($id){
     if($statement->errorCode() !== 0 && empty($home)){
         $sqlError = $statement->errorInfo();
         $error = 'SELECT error &rarr; The home with ID <strong>' . $id . '</strong> was not retrieved because: ' . $sqlError[2];
+        logErrorMessage($error);
     }
     return $home;
 }
@@ -88,8 +91,10 @@ function updateHome($id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCo
     if($statement->errorCode() !== 0 && $success === false){
         $sqlError = $statement->errorInfo();
         $error = 'Update error &rarr; The home <strong>' . $homeTitle . '</strong> was not updated because: ' . $sqlError[2];
+        logErrorMessage($error);
     } else {
         $successMessage = 'The home <strong> ' . $homeTitle . '</strong> was successfully updated.';
+        logSuccessMessage($successMessage);
     }
 }
 function deleteHome($id, $homeTitle){
@@ -104,7 +109,9 @@ function deleteHome($id, $homeTitle){
     if($statement->errorCode() !== 0 && $success === false){
         $sqlError = $statement->errorInfo();
         $error = 'DELETE error &rarr; The home <strong>' . $homeTitle . '</strong> was not deleted because: ' . $sqlError[2];
+        logErrorMessage($error);
     } else {
         $successMessage = 'The home <strong> ' . $homeTitle . '</strong> was successfully deleted.';
+        logSuccessMessage($successMessage);
     }
 }

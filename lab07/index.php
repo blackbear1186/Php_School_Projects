@@ -105,6 +105,23 @@ if($action === 'list-homes'){
 
 } else if($action === 'clear-message'){
     header('Location: .');
+} else if ($action === 'empty-log') {
+    unset($_SESSION['log']);
+    header('Location: .');
+} else if($action === 'end-session') {
+    $_SESSION = array();
+    // clean up the session ID
+    session_destroy();
+    // delete the cookie from the session
+    $name = session_name();
+    $expire = strtotime('-1 year');
+    $params = session_get_cookie_params();
+    $path = $params['path'];
+    $domain = $params['domain'];
+    $secure = $params['secure'];
+    $httponly = $params['httponly'];
+    setcookie($name, '', $expire, $path, $domain, $secure, $httponly);
+    header('Location: .');
 }
 else {
   $error = "The <strong>$action</strong> action was not handled in the code.";
