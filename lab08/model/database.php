@@ -5,9 +5,7 @@ class Database {
     private static $password = 'webdsuco_berlin375';
     private static $db;
 
-    public function __construct()
-    {
-    }
+    public function __construct(){}
 
     public static function getDB() {
         if(!isset(self::$db)) {
