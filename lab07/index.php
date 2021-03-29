@@ -3,7 +3,7 @@ require 'model/database.php';
 require 'model/realEstate_db.php';
 require 'utility/functions.php';
 
-$lifetime = 60 * 60 * 24 * 14;
+$lifetime = 60 * 60 * 24 * 7;
 
 session_set_cookie_params($lifetime, '/');
 session_start();
@@ -97,6 +97,7 @@ if($action === 'list-homes'){
 
 } else if ($action === 'delete-home'){
     $id = filter_input(INPUT_POST, 'ID', FILTER_SANITIZE_NUMBER_INT);
+    $home = getHomeInfo($id);
     $homeTitle = $home['Title'];
     deleteHome($id, $homeTitle);
     $realEstate = getAllRealEstate();

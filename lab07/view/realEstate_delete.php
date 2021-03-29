@@ -1,6 +1,6 @@
 <?php include 'header.php'; ?>
     <h1 class="text-center">Delete Home Confirmation</h1>
-    <h4 class="text-secondary text-center">Are you sure you want to delete the <?php echo $home['Title'];?> ?</h4>
+    <h4 class="text-secondary text-center">Are you sure you want to delete the <?php echo $home['Title'];?>?</h4>
 
     <form action="." method="post" class="col-lg-6 mx-auto">
         <hr>
