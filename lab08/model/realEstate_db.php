@@ -8,10 +8,10 @@ class RealEstateDB {
         $statement->execute();
         $rows = $statement->fetchAll();
         foreach ($rows as $row) {
-            $property = new RealEstate($row['Title'], $row['Address'], $row['City'], $row['State'], $row['Zip'], $row['Beds'],
+            $home = new RealEstate($row['Title'], $row['Address'], $row['City'], $row['State'], $row['Zip'], $row['Beds'],
                 $row['Baths'], $row['HouseSize'], $row['LotSize'], $row['Price']);
-            $property->setId($row['ID']);
-            $realEstate[] = $property;
+            $home->setId($row['ID']);
+            $realEstate[] = $home;
         }
         $statement->closeCursor();
         if($statement->errorCode() !== 0 && empty($realEstate)){
@@ -20,19 +20,19 @@ class RealEstateDB {
         }
         return $realEstate;
     }
-    public static function addHome(RealEstate $property){
+    public static function addHome(RealEstate $home){
         $db = Database::getDB();
         global $error, $successMessage;
-        $homeTitle = $property->getHomeTitle();
-        $homeAddress = $property->getHomeAddress();
-        $homeState = $property->getHomeState();
-        $homeCity = $property->getHomeCity();
-        $zipCode = $property->getZipCode();
-        $homeBeds = $property->getHomeBeds();
-        $homeBaths = $property->getHomeBaths();
-        $homeSize = $property->getHomeSize();
-        $lotSize = $property->getLotSize();
-        $homePrice = $property->getHomePrice();
+        $homeTitle = $home->getHomeTitle();
+        $homeAddress = $home->getHomeAddress();
+        $homeState = $home->getHomeState();
+        $homeCity = $home->getHomeCity();
+        $zipCode = $home->getZipCode();
+        $homeBeds = $home->getHomeBeds();
+        $homeBaths = $home->getHomeBaths();
+        $homeSize = $home->getHomeSize();
+        $lotSize = $home->getLotSize();
+        $homePrice = $home->getHomePrice();
 
         $query = 'INSERT INTO real_estate
                 (Title, Address, City, State, Zip, Beds, Baths, HouseSize, LotSize, Price)
@@ -68,31 +68,31 @@ class RealEstateDB {
         $statement->bindValue(':Home_id', $id, PDO::PARAM_INT);
         $statement->execute();
         $row = $statement->fetch();
-        $property = new RealEstate($row['Title'], $row['Address'], $row['City'], $row['State'], $row['Zip'], $row['Beds'], $row['Baths'], $row['HouseSize'], $row['LotSize'], $row['Price']);
-        $property->getId($row['ID']);
+        $home = new RealEstate($row['Title'], $row['Address'], $row['City'], $row['State'], $row['Zip'], $row['Beds'], $row['Baths'], $row['HouseSize'], $row['LotSize'], $row['Price']);
+        $home->setId($row['ID']);
         $statement->closeCursor();
         if($statement->errorCode() !== 0 && empty($home)){
             $sqlError = $statement->errorInfo();
             $error = 'SELECT error &rarr; The home with ID <strong>' . $id . '</strong> was not retrieved because: ' . $sqlError[2];
             logErrorMessage($error);
         }
-        return $property;
+        return $home;
     }
-    public static function updateHome(RealEstate $property){
+    public static function updateHome(RealEstate $home){
         $db = Database::getDB();
         global $error, $successMessage;
 
-        $id = $property->getId();
-        $homeTitle = $property->getHomeTitle();
-        $homeAddress = $property->getHomeAddress();
-        $homeState = $property->getHomeState();
-        $homeCity = $property->getHomeCity();
-        $zipCode = $property->getZipCode();
-        $homeBeds = $property->getHomeBeds();
-        $homeBaths = $property->getHomeBaths();
-        $homeSize = $property->getHomeSize();
-        $lotSize = $property->getLotSize();
-        $homePrice = $property->getHomePrice();
+        $id = $home->getId();
+        $homeTitle = $home->getHomeTitle();
+        $homeAddress = $home->getHomeAddress();
+        $homeState = $home->getHomeState();
+        $homeCity = $home->getHomeCity();
+        $zipCode = $home->getZipCode();
+        $homeBeds = $home->getHomeBeds();
+        $homeBaths = $home->getHomeBaths();
+        $homeSize = $home->getHomeSize();
+        $lotSize = $home->getLotSize();
+        $homePrice = $home->getHomePrice();
 
         $query = 'UPDATE real_estate 
                 SET ID = :Home_id,

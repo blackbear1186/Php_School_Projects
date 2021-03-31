@@ -2,7 +2,7 @@
 class RealEstate {
     private $id, $homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice;
 
-    public function __contruct($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice){
+    public function __construct($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice){
         $this->homeTitle = $homeTitle;
         $this->homeAddress = $homeAddress;
         $this->homeCity = $homeCity;
@@ -17,6 +17,10 @@ class RealEstate {
 
     public function getId() {
         return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
     }
 
     public function getHomeTitle()
@@ -125,7 +129,5 @@ class RealEstate {
         $this->homePrice = $homePrice;
     }
 
-    public function setId($id) {
-        $this->id = $id;
-    }
+
 }

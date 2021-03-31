@@ -22,30 +22,30 @@
   <tbody>
     <?php foreach ($realEstate as $home) : ?>
     <tr>
-        <td><?php echo $home['Title']; ?></td>
-        <td><?php echo $home['Address']; ?></td>
-        <td><?php echo $home['City']; ?></td>
-        <td><?php echo $home['State']; ?></td>
-        <td><?php echo $home['Zip']; ?></td>
-        <td><?php echo $home['Beds']; ?></td>
-        <td><?php echo $home['Baths']; ?></td>
-        <td><?php echo $home['HouseSize']; ?></td>
-        <td><?php echo $home['LotSize']; ?></td>
-        <td><?php echo $home['Price']; ?></td>
+        <td><?php echo $home->getHomeTitle(); ?></td>
+        <td><?php echo $home->getHomeAddress(); ?></td>
+        <td><?php echo $home->getHomeCity(); ?></td>
+        <td><?php echo $home->getHomeState(); ?></td>
+        <td><?php echo $home->getZipCode(); ?></td>
+        <td><?php echo $home->getHomeBeds(); ?></td>
+        <td><?php echo $home->getHomeBaths(); ?></td>
+        <td><?php echo $home->getHomeSize(); ?></td>
+        <td><?php echo $home->getLotSize(); ?></td>
+        <td><?php echo $home->getHomePrice(); ?></td>
         <td>
             <form action="." method="post">
                 <input type="hidden" name="action" value="show-update-home">
-                <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
+                <input type="hidden" name="ID" value="<?php echo $home->getId(); ?>">
                 <input type="submit" class="btn btn-secondary" value="Update" aria-label="Update
-                <?php echo $home['Title']; ?>">
+                <?php echo $home->getHomeTitle(); ?>">
             </form>
         </td>
         <td>
             <form action="." method="post">
                 <input type="hidden" name="action" value="show-delete-home">
-                <input type="hidden" name="ID" value="<?php echo $home['ID']; ?>">
+                <input type="hidden" name="ID" value="<?php echo $home->getId(); ?>">
                 <input type="submit" class="btn btn-secondary" value="Delete" aria-label="Delete
-                <?php echo $home['Title']; ?>">
+                <?php echo $home->getHomeTitle; ?>">
             </form>
         </td>
     </tr>
