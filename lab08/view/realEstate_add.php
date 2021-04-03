@@ -4,7 +4,7 @@
 <form action="." method="post" class="col-lg-6 mx-auto">
     <hr>
     <div class="form-group">
-        <label for="house-title">Home Title</label>
+        <label for="home-title">Home Title</label>
         <input type="text" name="home-title" id="home-title" class="form-control" placeholder="Home Title"
                value="<?php if (!is_null($homeTitle)) echo $homeTitle; ?>" autofocus>
     </div>

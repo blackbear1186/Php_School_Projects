@@ -4,11 +4,11 @@
     <form action="." method="post" class="col-lg-6 mx-auto">
         <hr>
         <div class="form-group">
-            <label>Home ID</label>
+            <label for="ID">Home ID</label>
             <input type="text" class="form-control" name="ID" id="ID" value="<?php echo $home->getId(); ?>" disabled>
         </div>
         <div class="form-group">
-            <label for="house-title">Home Title</label>
+            <label for="home-title">Home Title</label>
             <input type="text" name="home-title" id="home-title" class="form-control" placeholder="Home Title"
                    value="<?php echo isset($homeTitle) ? $homeTitle: $home->getHomeTitle(); ?>" autofocus>
         </div>
