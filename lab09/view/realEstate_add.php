@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="home-address">Home Address</label>
-        <input type="text" id="home-address" class="form-control<?php echo (!empty($homeAddressError)) ? ' is-invalid' : ''; ?>"
+        <input type="text" name='home-address' id="home-address" class="form-control<?php echo (!empty($homeAddressError)) ? ' is-invalid' : ''; ?>"
                placeholder="Address"
                value="<?php echo $homeAddress; ?>">
         <?php if (!empty($homeAddressError)) echo $homeAddressError; ?>

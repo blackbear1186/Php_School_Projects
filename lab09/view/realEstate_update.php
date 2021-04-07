@@ -9,18 +9,21 @@
         </div>
         <div class="form-group">
             <label for="home-title">Home Title</label>
-            <input type="text" name="home-title" id="home-title" class="form-control" placeholder="Home Title"
+            <input type="text" name="home-title" id="home-title" class="form-control<?php echo (!empty($homeTitleError)) ? ' is-invalid' : ''; ?>" placeholder="Home Title"
                    value="<?php echo isset($homeTitle) ? $homeTitle: $home->getHomeTitle(); ?>" autofocus>
+            <?php if (!empty($homeTitleError)) echo $homeTitleError; ?>
         </div>
         <div class="form-group">
             <label for="home-address">Home Address</label>
-            <input type="text" name="home-address" id="home-address" class="form-control" placeholder="Address"
+            <input type="text" name="home-address" id="home-address" class="form-control<?php echo (!empty($homeAddressError)) ? ' is-invalid' : ''; ?>" placeholder="Address"
                    value="<?php echo isset($homeAddress) ? $homeAddress: $home->getHomeAddress(); ?>">
+            <?php if (!empty($homeAddressError)) echo $homeAddressError; ?>
         </div>
         <div class="form-group">
             <label for="home-city">City</label>
-            <input type="text" name="home-city" id="home-city" class="form-control" placeholder="City"
+            <input type="text" name="home-city" id="home-city" class="form-control<?php echo (!empty($homeCityError)) ? ' is-invalid' : ''; ?>" placeholder="City"
                    value="<?php echo isset($homeCity) ? $homeCity: $home->getHomeCity(); ?>">
+            <?php if (!empty($homeCityError)) echo $homeCityError; ?>
         </div>
         <div class="form-group">
             <label for="home-state">State</label>
@@ -81,8 +84,10 @@
         </div>
         <div class="form-group">
             <label for="zip-code">Zip Code</label>
-            <input type="text" name="zip-code" id="zip-code" class="form-control" placeholder="Zip Code"
+            <input type="text" name="zip-code" id="zip-code" class="form-control<?php echo (!empty($zipCodeError)) ? ' is-invalid' :
+                ''; ?>" placeholder="Zip Code"
                    value="<?php echo isset($zipCode) ? $zipCode: $home->getZipCode(); ?>">
+            <?php if(!empty($zipCodeError)) echo $zipCodeError; ?>
         </div>
         <div class="form-group">
             <label for="home-beds">Beds</label>
@@ -114,18 +119,24 @@
         </div>
         <div class="form-group">
             <label for="home-size">Home Size</label>
-            <input type="text" name="home-size" id="home-size" class="form-control" placeholder="Home Size"
+            <input type="text" name="home-size" id="home-size" class="form-control<?php echo (!empty($homeSizeError)) ? ' is-invalid' :
+                ''; ?>" placeholder="Home Size"
                    value="<?php echo isset($homeSize) ? $homeSize: $home->getHomeSize(); ?>">
+            <?php if(!empty($homeSizeError)) echo $homeSizeError; ?>
         </div>
         <div class="form-group">
             <label for="lot-size">Lot Size</label>
-            <input type="text" name="lot-size" id="lot-size" class="form-control" placeholder="Lot Size"
+            <input type="text" name="lot-size" id="lot-size" class="form-control<?php echo (!empty($lotSizeError)) ? ' is-invalid' :
+                ''; ?>" placeholder="Lot Size"
                    value="<?php echo isset($lotSize) ? $lotSize: $home->getLotSize(); ?>">
+            <?php if(!empty($lotSizeError)) echo $lotSizeError; ?>
         </div>
         <div class="form-group">
             <label for="home-price">Home Price</label>
-            <input type="text" name="home-price" id="home-price" class="form-control" placeholder="Home Price"
+            <input type="text" name="home-price" id="home-price" class="form-control<?php echo (!empty($homePriceError)) ? ' is-invalid' :
+                ''; ?>" placeholder="Home Price"
                    value="<?php echo isset($homePrice) ? $homePrice: $home->getHomePrice(); ?>">
+            <?php if(!empty($homePriceError)) echo $homePriceError; ?>
         </div>
         <div class="form-group text-center">
             <input type="hidden" name="ID" value="<?php echo $home->getId(); ?>">

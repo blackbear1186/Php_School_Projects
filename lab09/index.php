@@ -62,12 +62,12 @@ if($action === 'list-homes'){
     $homePrice = filter_input(INPUT_POST, 'home-price');
 
     $validate->text('home-title', $homeTitle, true, 1, 75);
-//    $validate->pattern('home-address', $homeAddress,'/^\w/', 'Please enter an address.');
+    $validate->pattern('home-address', $homeAddress, '/^\d{1,5}\s\w{1,}\s\w{1,}\s?\w{1,}$/', 'Please enter an address.');
     $validate->text('home-city', $homeCity, true, 1, 50);
-    $validate->pattern('zip-code', $zipCode, '/^\d{5}$/', 'Please enter a 5 digit zip code.');
-    $validate->pattern('home-size', $homeSize, '/^\d{4}$/', 'Please enter the home size in square feet.');
-    $validate->pattern('lot-size', $lotSize, '/^\d{4}$/', 'Please enter the lot size in square feet.');
-    $validate->pattern('home-price', $homePrice, '/^\d{6}$/', 'Please enter the home price in thousands.');
+    $validate->pattern('zip-code', $zipCode, '/^\d{5}(-[[:digit:]]{4})?$/', 'Please enter a 5 digit zip code.');
+    $validate->pattern('home-size', $homeSize, '/^\d{3,}$/', 'Please enter the home size in square feet.');
+    $validate->pattern('lot-size', $lotSize, '/^\d{3,}/', 'Please enter the lot size in square feet.');
+    $validate->pattern('home-price', $homePrice, '/^\d{5,}$/', 'Please enter the home price in thousands.');
 
 
     if($fields->hasErrors()){
@@ -81,9 +81,8 @@ if($action === 'list-homes'){
         $homeSizeError = $fields->getField('home-size')->getHtml();
         $lotSizeError = $fields->getField('lot-size')->getHtml();
         $homePriceError = $fields->getField('home-price')->getHtml();
-
-
         include 'view/realEstate_add.php';
+
     } else {
         $home = new RealEstate($homeTitle, $homeAddress, $homeCity, $homeState, $zipCode, $homeBeds, $homeBaths, $homeSize, $lotSize, $homePrice);
         RealEstateDB::addHome($home);
@@ -111,11 +110,26 @@ if($action === 'list-homes'){
     $lotSize = filter_input(INPUT_POST, 'lot-size');
     $homePrice = filter_input(INPUT_POST, 'home-price');
 
-    if(!strlen($homeTitle) || !strlen($homeAddress) || !strlen($homeCity) || !strlen($zipCode) || !strlen($homeSize) || !strlen($lotSize) || !strlen($homePrice)){
+    $validate->text('home-title', $homeTitle, true, 1, 75);
+    $validate->pattern('home-address', $homeAddress, '/^\d{1,5}\s\w{1,}\s\w{1,}\s?\w{1,}$/', 'Please enter an address.');
+    $validate->text('home-city', $homeCity, true, 1, 50);
+    $validate->pattern('zip-code', $zipCode, '/^\d{5}(-[[:digit:]]{4})?$/', 'Please enter a 5 digit zip code.');
+    $validate->pattern('home-size', $homeSize, '/^\d{3,}$/', 'Please enter the home size in square feet.');
+    $validate->pattern('lot-size', $lotSize, '/^\d{3,}/', 'Please enter the lot size in square feet.');
+    $validate->pattern('home-price', $homePrice, '/^\d{5,}$/', 'Please enter the home price in thousands.');
+
+    if($fields->hasErrors()){
         $error = 'All fields in the Update form must contain data. Please ensure all form elements contain appropriate values.';
         logErrorMessage($error);
         $home = RealEstateDB::getHomeInfo($id);
         $pageTitle = 'Update Home';
+        $homeTitleError = $fields->getField('home-title')->getHtml();
+        $homeAddressError = $fields->getField('home-address')->getHtml();
+        $homeCityError = $fields->getField('home-city')->getHtml();
+        $zipCodeError = $fields->getField('zip-code')->getHtml();
+        $homeSizeError = $fields->getField('home-size')->getHtml();
+        $lotSizeError = $fields->getField('lot-size')->getHtml();
+        $homePriceError = $fields->getField('home-price')->getHtml();
         include 'view/realEstate_update.php';
 
     } else {
