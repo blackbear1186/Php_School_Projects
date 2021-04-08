@@ -13,7 +13,7 @@
     <div class="form-group">
         <label for="home-address">Home Address</label>
         <input type="text" name='home-address' id="home-address" class="form-control<?php echo (!empty($homeAddressError)) ? ' is-invalid' : ''; ?>"
-               placeholder="Address"
+               placeholder="820 N Richmond bl"
                value="<?php echo $homeAddress; ?>">
         <?php if (!empty($homeAddressError)) echo $homeAddressError; ?>
     </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="home-state">State</label>
-        <select class="custom-select" name="home-state" id="home-state">
+        <select class="custom-select<?php echo (!empty($homeStateError)) ? ' is-invalid' : ''; ?>" name="home-state" id="home-state">
             <option value="choose">Choose State</option>
             <option value="AL"<?php if($homeState === 'AL') echo ' selected'; ?>>AL</option>
             <option value="AZ"<?php if($homeState === 'AZ') echo ' selected'; ?>>AZ</option>
@@ -81,6 +81,8 @@
             <option value="WY"<?php if($homeState === 'WY') echo ' selected'; ?>>WY</option>
 
         </select>
+        <?php if(!empty($homeStateError)) echo $homeStateError; ?>
+
     </div>
     <div class="form-group">
         <label for="zip-code">Zip Code</label>
@@ -92,7 +94,7 @@
     </div>
     <div class="form-group">
         <label for="home-beds">Beds</label>
-        <select class="custom-select" name="home-beds" id="home-beds">
+        <select class="custom-select<?php echo (!empty($homeBedError)) ? ' is-invalid' : ''; ?>" name="home-beds" id="home-beds">
             <option value="choose">Choose Beds</option>
             <option value="1"<?php if($homeBeds === '1') echo ' selected';?>>1</option>
             <option value="2"<?php if($homeBeds === '2') echo ' selected';?>>2</option>
@@ -104,10 +106,11 @@
             <option value="8"<?php if($homeBeds === '8') echo ' selected';?>>8</option>
 
         </select>
+        <?php if(!empty($homeBedError)) echo $homeBedError; ?>
     </div>
     <div class="form-group">
         <label for="home-baths">Baths</label>
-        <select class="custom-select" name="home-baths" id="home-baths">
+        <select class="custom-select<?php echo (!empty($homeBathError)) ? ' is-invalid' : ''; ?>" name="home-baths" id="home-baths">
             <option value="choose">Choose Baths</option>
             <option value="1"<?php if($homeBaths === '1') echo ' selected'; ?>>1</option>
             <option value="2"<?php if($homeBaths === '2') echo ' selected'; ?>>2</option>
@@ -117,8 +120,8 @@
             <option value="6"<?php if($homeBaths === '6') echo ' selected'; ?>>6</option>
             <option value="7"<?php if($homeBaths === '7') echo ' selected'; ?>>7</option>
             <option value="8"<?php if($homeBaths === '8') echo ' selected'; ?>>8</option>
-
         </select>
+        <?php if(!empty($homeBathError)) echo $homeBathError; ?>
     </div>
     <div class="form-group">
         <label for="home-size">Home Size</label>

@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<!DOCTYPE html>
+
     <h1 class="text-center">Delete Home Confirmation</h1>
     <h4 class="text-secondary text-center">Are you sure you want to delete the <?php echo $home->getHomeTitle();?>?</h4>
 

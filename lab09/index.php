@@ -19,6 +19,7 @@ $fields->addField('home-size');
 $fields->addField('lot-size');
 $fields->addField('home-price');
 
+$getStates = '/^(AL|AZ|AR|CA|CO|CT|DE|FL|GA|HI|IA|ID|IL|IN|KS|KY|LA|MA|MD|ME|MI|MN|MO|MS|MT|NC|ND|NE|NH|NJ|NM|NV|NY|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VA|VT|WA|WI|WV|WY)$/';
 
 $lifetime = 60 * 60 * 24 * 7;
 
@@ -62,12 +63,15 @@ if($action === 'list-homes'){
     $homePrice = filter_input(INPUT_POST, 'home-price');
 
     $validate->text('home-title', $homeTitle, true, 1, 75);
-    $validate->pattern('home-address', $homeAddress, '/^\d{1,5}\s\w{1,}\s\w{1,}\s?\w{1,}$/', 'Please enter an address.');
+    $validate->pattern('home-address', $homeAddress, '/^\d{1,5}\s\w{1,}\s\w{1,}\s?\w{1,}$/', 'Please enter an address in the proper format.');
     $validate->text('home-city', $homeCity, true, 1, 50);
-    $validate->pattern('zip-code', $zipCode, '/^\d{5}(-[[:digit:]]{4})?$/', 'Please enter a 5 digit zip code.');
-    $validate->pattern('home-size', $homeSize, '/^\d{3,}$/', 'Please enter the home size in square feet.');
-    $validate->pattern('lot-size', $lotSize, '/^\d{3,}/', 'Please enter the lot size in square feet.');
-    $validate->pattern('home-price', $homePrice, '/^\d{5,}$/', 'Please enter the home price in thousands.');
+    $validate->pattern('home-state', $homeState, $getStates, 'Please choose a state.');
+    $validate->pattern('zip-code', $zipCode, '/^\d{5}$/', 'Please enter a 5-digit zip code.');
+    $validate->pattern('home-beds', $homeBeds, '/^(1|2|3|4|5|6|7|8)$/', 'Please choose a number of beds between 1 and 8.');
+    $validate->pattern('home-baths', $homeBaths, '/^(1|2|3|4|5|6|7|8)$/', 'Please choose a number of baths between 1 and 8.');
+    $validate->pattern('home-size', $homeSize, '/^\d{3,4}$/', 'Please enter a home size between 3 and 4 digits.');
+    $validate->pattern('lot-size', $lotSize, '/^\d{3,6}$/', 'Please enter a lot size between 3 and 6 digits.');
+    $validate->pattern('home-price', $homePrice, '/^\d{4,9}$/', 'Please enter a home price between 4 and 9 digits.');
 
 
     if($fields->hasErrors()){
@@ -77,7 +81,10 @@ if($action === 'list-homes'){
         $homeTitleError = $fields->getField('home-title')->getHtml();
         $homeAddressError = $fields->getField('home-address')->getHtml();
         $homeCityError = $fields->getField('home-city')->getHtml();
+        $homeStateError = $fields->getField('home-state')->getHtml();
         $zipCodeError = $fields->getField('zip-code')->getHtml();
+        $homeBedError = $fields->getField('home-beds')->getHtml();
+        $homeBathError = $fields->getField('home-baths')->getHtml();
         $homeSizeError = $fields->getField('home-size')->getHtml();
         $lotSizeError = $fields->getField('lot-size')->getHtml();
         $homePriceError = $fields->getField('home-price')->getHtml();
@@ -111,12 +118,12 @@ if($action === 'list-homes'){
     $homePrice = filter_input(INPUT_POST, 'home-price');
 
     $validate->text('home-title', $homeTitle, true, 1, 75);
-    $validate->pattern('home-address', $homeAddress, '/^\d{1,5}\s\w{1,}\s\w{1,}\s?\w{1,}$/', 'Please enter an address.');
+    $validate->pattern('home-address', $homeAddress, '/^\d{1,5}\s\w{1,}\s\w{1,}\s?\w{1,}$/', 'Please enter an address in the proper format.');
     $validate->text('home-city', $homeCity, true, 1, 50);
-    $validate->pattern('zip-code', $zipCode, '/^\d{5}(-[[:digit:]]{4})?$/', 'Please enter a 5 digit zip code.');
-    $validate->pattern('home-size', $homeSize, '/^\d{3,}$/', 'Please enter the home size in square feet.');
-    $validate->pattern('lot-size', $lotSize, '/^\d{3,}/', 'Please enter the lot size in square feet.');
-    $validate->pattern('home-price', $homePrice, '/^\d{5,}$/', 'Please enter the home price in thousands.');
+    $validate->pattern('zip-code', $zipCode, '/^\d{5}$/', 'Please enter a 5-digit zip code.');
+    $validate->pattern('home-size', $homeSize, '/^\d{3,4}$/', 'Please enter a home size between 3 and 4 digits.');
+    $validate->pattern('lot-size', $lotSize, '/^\d{3,6}$/', 'Please enter a lot size between 3 and 6 digits.');
+    $validate->pattern('home-price', $homePrice, '/^\d{4,9}$/', 'Please enter a home price between 4 and 9 digits.');
 
     if($fields->hasErrors()){
         $error = 'All fields in the Update form must contain data. Please ensure all form elements contain appropriate values.';
