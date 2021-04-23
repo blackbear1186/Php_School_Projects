@@ -1,0 +1,24 @@
+<?php include 'header.php'; ?>
+<h1 class="text-center">Log In</h1>
+<form action="." method="post" class="col-lg-6 mx-auto">
+    <hr>
+    <p>Please enter a username and password to log in.</p>
+    <div class="form-group">
+        <label for="username">Username:<sup>*</sup></label>
+        <input type="text" id="username" name="username" class="form-control" value="" autofocus>
+    </div>
+    <div class="form-group">
+        <label for="password">Password:<sup>*</sup></label>
+        <input type="password" id="password" name="password" class="form-control" value="">
+    </div>
+    <div class="form-group text-center">
+        <input type="hidden" name="action" value="log-in">
+        <input type="submit" class="btn btn-success" value="Log In">
+        <a class="btn btn-danger" href=".">Cancel</a>
+    </div>
+    <div class="text-center">
+        <p>No account? <a href=".?action=show-register-form">Register for an account</a> </p>
+        <p><sup>*</sup> Indicates a required field.</p>
+    </div>
+</form>
+<?php include 'footer.php';?>
