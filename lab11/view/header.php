@@ -27,9 +27,9 @@
             }
             ?>
             <div class="pb-2 mt-4 border-bottom text-right">
-                <span>
+                <p>
                     <a href=".?action=show-login-form">Log In</a>
-                </span>
+                </p>
             </div>
         </header>
         <main>

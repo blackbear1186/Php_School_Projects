@@ -162,9 +162,58 @@ if($action === 'list-homes'){
     $pageTitle = 'List Homes';
     header('Location: .');
 
-} else if($action == 'show-login-form') {
+} else if($action === 'show-login-form') {
     $pageTitle = 'Log In';
     include 'view/login.php';
+} else if($action === 'show-register-form') {
+    $pageTitle = 'Create Account';
+    include 'view/register.php';
+} else if($action === 'register') {
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+    $confirmPassword = filter_input(INPUT_POST, 'confirm-password', FILTER_SANITIZE_STRING);
+
+    if(empty($username)) {
+        $errorUsername = 'Please enter a username.';
+    } else {
+        if(strlen($username) < 5) {
+            $errorUsername = 'The username must have at least 5 characters';
+        }
+    }
+
+    if(empty($password)){
+        $errorPassword = 'Please enter a password.';
+    } else {
+        if(strlen($password) < 9) {
+            $errorPassword = 'The password must have at least 9 characters.<br>';
+        }
+        if(!preg_match('/[[:lower:]]/', $password)) {
+            $errorPassword .= 'The password must contain a lowercase letter.<br>';
+        }
+        if(!preg_match('/[[:upper:]]/', $password)) {
+            $errorPassword .= 'The password must contain a uppercase letter.<br>';
+        }
+        if(!preg_match('/[[:digit:]]/', $password)) {
+            $errorPassword .= 'The password must contain a number.<br>';
+        }
+        if(!preg_match('/(!)|(@)|(#)|(%)|(&)|(\|)|(\?)/', $password)) {
+            $errorPassword .= 'The password must contain at least ! @ # % & | ?.';
+        }
+    }
+
+    if(empty($confirmPassword)){
+        $errorConfirmPassword = 'Please confirm the password.';
+    } else if($confirmPassword !== $password) {
+        $errorConfirmPassword = 'The passwords that were entered do not match.';
+    }
+
+    if(empty($username) && empty($password) && empty($confirmPassword)){
+
+    } else {
+        $pageTitle = 'Create Account';
+        logErrorMessage('The account could not be created. Please see the errors below.');
+        include 'view/register.php';
+    }
 }
 else if($action === 'clear-message'){
     header('Location: .');
