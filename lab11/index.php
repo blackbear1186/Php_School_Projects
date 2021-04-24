@@ -5,6 +5,7 @@ require 'model/realEstate_db.php';
 require 'utility/functions.php';
 require 'model/validate.php';
 require 'model/fields.php';
+require 'model/login_db.php';
 
 $validate = new Validate();
 $fields = $validate->getFields();
@@ -175,7 +176,10 @@ if($action === 'list-homes'){
 
     if(empty($username)) {
         $errorUsername = 'Please enter a username.';
-    } else {
+    } else if(checkUsername($username) === true)  {
+        $errorUsername = 'This username is already taken.';
+    }
+    else {
         if(strlen($username) < 5) {
             $errorUsername = 'The username must have at least 5 characters';
         }
@@ -207,8 +211,15 @@ if($action === 'list-homes'){
         $errorConfirmPassword = 'The passwords that were entered do not match.';
     }
 
-    if(empty($username) && empty($password) && empty($confirmPassword)){
-
+    if(empty($errorUsername) && empty($errorPassword) && empty($errorConfirmPassword)){
+        $userIP = $_SERVER['REMOTE_ADDR'];
+        if(registerUser($username, $password, $userIP)) {
+            header('Location:.?action=show-login-form');
+        }
+        else {
+            $pageTitle = 'Create Account';
+            include 'view/register.php';
+        }
     } else {
         $pageTitle = 'Create Account';
         logErrorMessage('The account could not be created. Please see the errors below.');

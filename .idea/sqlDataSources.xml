@@ -50,7 +50,7 @@
         </State>
         <State>
           <option name="id" value="55fb8fb3-f4b5-4845-b871-7309105d4891" />
-          <option name="name" value="JohnsonLab10" />
+          <option name="name" value="User Accounts Table" />
           <option name="urls">
             <array>
               <option value="file://$PROJECT_DIR$/JohnsonLab10.sql" />
