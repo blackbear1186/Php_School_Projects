@@ -7,7 +7,7 @@ function checkUsername($username) {
     $success = $statement->execute();
 
     if($statement->errorCode() !== 0 && $success === false){
-        $sqlError = $statement->errorCode();
+        $sqlError = $statement->errorInfo();
         $error = 'The query to check if a user exists did not work because: ' . $sqlError[2];
         logErrorMessage($error);
     }
@@ -26,7 +26,7 @@ function registerUser($username, $password, $userIP) {
     $success = $statement->execute();
 
     if($statement->errorCode() !== 0 && $success === false) {
-        $sqlError = $statement->errorCode();
+        $sqlError = $statement->errorInfo();
         $error = 'The query to register a user did not work because: ' . $sqlError[2];
         logErrorMessage($error);
     } else {
@@ -35,4 +35,33 @@ function registerUser($username, $password, $userIP) {
     }
     $statement->closeCursor();
     return $success;
+}
+
+function isValidLogin($username, $password) {
+    $db = Database::getDB();
+    $query = 'SELECT Username, Password FROM user WHERE Username = :Username';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':Username', $username);
+    $success = $statement->execute();
+
+    if($statement->errorCode() !== 0 && $success === false) {
+        $sqlError = $statement->errorInfo();
+        $error = 'The query to log in a user did not work because: ' . $sqlError[2];
+        logErrorMessage($error);
+        $statement->closeCursor();
+        return false;
+    } else {
+        $row = $statement->fetch();
+        $hashPassword = $row['Password'];
+        $statement->closeCursor();
+        if(password_verify($password, $hashPassword)){
+            $successMessage = 'The user <strong>' . $username . '</strong> was successfully logged in.';
+            logSuccessMessage($successMessage);
+            return true;
+        } else {
+            $error = 'The password for <strong>' . $username . '</strong> is incorrect.';
+            logErrorMessage($error);
+            return false;
+        }
+    }
 }

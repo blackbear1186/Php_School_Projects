@@ -28,7 +28,12 @@
             ?>
             <div class="pb-2 mt-4 border-bottom text-right">
                 <p>
-                    <a href=".?action=show-login-form">Log In</a>
+                    <?php if(isset($_SESSION['username'])) : ?>
+                    Logged in as: <strong><?php echo $_SESSION['username'];?></strong> |
+                    <a href=".?action=log-out">Log Out</a>
+                    <?php else : ?>
+                        <a href=".?action=show-login-form">Log In</a>
+                    <?php endif; ?>
                 </p>
             </div>
         </header>

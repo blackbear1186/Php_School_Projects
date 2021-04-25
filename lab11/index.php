@@ -225,6 +225,39 @@ if($action === 'list-homes'){
         logErrorMessage('The account could not be created. Please see the errors below.');
         include 'view/register.php';
     }
+} else if($action === 'log-in') {
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    if(empty($username)) {
+        $errorUsername = 'Please enter a username.';
+    } else if(checkUsername($username) === false) {
+        $errorUsername = 'No account found with that username.';
+    } else {
+        if(empty($password)) {
+            $errorPassword = 'Please enter a password.';
+        } else if(isValidLogin($username, $password) === false) {
+            $errorPassword = 'The password is incorrect.';
+        }
+
+    }
+    if(empty($errorUsername) && empty($errorPassword)) {
+        session_start();
+        $_SESSION['username'] = $username;
+        header('Location:.');
+    } else {
+        $pageTitle = 'Log In';
+        logErrorMessage('Unsuccessful log in attempt. Please see the error(s) below.');
+        include 'view/login.php';
+    }
+
+} else if($action === 'log-out') {
+    $_SESSION = array();
+    session_destroy();
+    session_start();
+    logSuccessMessage('You have successfully logged out.');
+    header('Location:.');
+    exit();
 }
 else if($action === 'clear-message'){
     header('Location: .');

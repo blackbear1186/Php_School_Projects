@@ -15,8 +15,9 @@
         <th scope="col">Lot Size</th>
         <th scope="col">Price</th>
         <th scope="col">Update</th>
+        <?php if (isset($_SESSION['username'])) : ?>
         <th scope="col">Delete</th>
-
+        <?php endif; ?>
     </tr>
   </thead>
   <tbody>
@@ -40,6 +41,7 @@
                 <?php echo $home->getHomeTitle(); ?>">
             </form>
         </td>
+        <?php if (isset($_SESSION['username'])) : ?>
         <td>
             <form action="." method="post">
                 <input type="hidden" name="action" value="show-delete-home">
@@ -48,6 +50,7 @@
                 <?php echo $home->getHomeTitle; ?>">
             </form>
         </td>
+        <?php endif; ?>
     </tr>
   <?php endforeach; ?>
   </tbody>
