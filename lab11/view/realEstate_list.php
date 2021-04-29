@@ -14,8 +14,8 @@
         <th scope="col">Home Size</th>
         <th scope="col">Lot Size</th>
         <th scope="col">Price</th>
-        <th scope="col">Update</th>
         <?php if (isset($_SESSION['username'])) : ?>
+            <th scope="col">Update</th>
         <th scope="col">Delete</th>
         <?php endif; ?>
     </tr>
@@ -33,6 +33,7 @@
         <td><?php echo $home->getHomeSize(); ?></td>
         <td><?php echo $home->getLotSize(); ?></td>
         <td><?php echo $home->getHomePrice(); ?></td>
+        <?php if(isset($_SESSION['username'])) : ?>
         <td>
             <form action="." method="post">
                 <input type="hidden" name="action" value="show-update-home">
@@ -41,7 +42,6 @@
                 <?php echo $home->getHomeTitle(); ?>">
             </form>
         </td>
-        <?php if (isset($_SESSION['username'])) : ?>
         <td>
             <form action="." method="post">
                 <input type="hidden" name="action" value="show-delete-home">

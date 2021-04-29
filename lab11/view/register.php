@@ -2,7 +2,7 @@
 include 'utility/secure_connection.php';
 include 'header.php';
 ?>
-    <h1 class="text-center">Log In</h1>
+    <h1 class="text-center">Create Account</h1>
     <form action="." method="post" class="col-lg-6 mx-auto">
         <hr>
         <p>Please complete the form below to register an account.</p>

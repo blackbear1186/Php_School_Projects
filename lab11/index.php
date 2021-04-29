@@ -201,7 +201,7 @@ if($action === 'list-homes'){
             $errorPassword .= 'The password must contain a number.<br>';
         }
         if(!preg_match('/(!)|(@)|(#)|(%)|(&)|(\|)|(\?)/', $password)) {
-            $errorPassword .= 'The password must contain at least ! @ # % & | ?.';
+            $errorPassword .= 'The password must contain at least one of the following characters: ! @ # % & | ?.';
         }
     }
 
